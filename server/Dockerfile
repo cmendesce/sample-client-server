@@ -1,6 +1,6 @@
 FROM node:22-alpine
-ARG APP='./client'
-COPY package*.json ./
+WORKDIR /usr/app
+COPY package*.json /usr/app
 RUN npm install
 COPY . .
 EXPOSE 3000

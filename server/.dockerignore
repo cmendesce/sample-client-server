@@ -14,7 +14,6 @@ build
 *.md
 *.txt
 *.log
-*.json
 
 # Ignore any editor-specific files
 .vscode

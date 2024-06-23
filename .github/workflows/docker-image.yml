@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build Server app
+      run: docker build ./server --file ./server/Dockerfile --tag sample-server:latest
+
+    - uses: actions/checkout@v4
+    - name: Build Client app
+      run: docker build ./client --file ./client/Dockerfile --tag sample-client:latest

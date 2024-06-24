@@ -18,12 +18,9 @@ jobs:
           - linux/amd64
           - linux/arm64
         include:
-          - dockerfile: ./server/Dockerfile
-            image: ghcr.io/cmendesce/sample-app-server
-            context: ./server
-          - dockerfile: ./client/Dockerfile
-            image: ghcr.io/cmendesce/sample-app-client
-            context: ./client
+          - dockerfile: Dockerfile
+            image: ghcr.io/cmendesce/sample-app
+            context: .
 
     steps:
     - uses: actions/checkout@v4

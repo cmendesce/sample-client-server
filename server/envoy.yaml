@@ -22,10 +22,6 @@ static_resources:
                             prefix: "/"
                           route:
                             cluster: httpbin
-                            timeout: 0s
-                            retry_policy:
-                              retry_on: 5xx
-                              num_retries: 1
                 http_filters:
                   - name: envoy.filters.http.fault
                     typed_config:
@@ -36,7 +32,8 @@ static_resources:
                           denominator: HUNDRED
                         http_status: 503
                   - name: envoy.filters.http.router
-
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
   clusters:
     - name: httpbin
       connect_timeout: 1s

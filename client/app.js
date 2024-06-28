@@ -7,7 +7,7 @@ const PORT = 3000;
 
 app.get('/', async (req, res) => {
     try {
-        const response = await axios.get(`http://server/`);
+        const response = await axios.get(`http://server:8080/`);
         res.status(200).send(response.data);
     } catch (error) {
         res.status(503).send({

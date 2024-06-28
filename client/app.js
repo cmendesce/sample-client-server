@@ -7,10 +7,13 @@ const PORT = 3000;
 
 app.get('/', async (req, res) => {
     try {
-        const response = await axios.get(`http://server:3000/`);
+        const response = await axios.get(`http://server/`);
         res.status(200).send(response.data);
     } catch (error) {
-        res.status(500).send(`Error calling server: ${error.message}`);
+        res.status(503).send({
+            message: `Error calling server: ${error.message}`,
+            status: error.status
+        });
     }
 });
 

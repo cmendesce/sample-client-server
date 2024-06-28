@@ -13,7 +13,8 @@ spec:
     spec:
       containers:
       - name: envoy
-        image: envoy/envoy:latest
+        image: ghcr.io/cmendesce/server-app:latest
+        imagePullBackoff: Always
         ports:
         - containerPort: 10000
         env:

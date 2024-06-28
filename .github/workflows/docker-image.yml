@@ -17,9 +17,12 @@ jobs:
         platform:
           - linux/amd64
         include:
-          - dockerfile: Dockerfile
-            image: ghcr.io/cmendesce/sample-app
-            context: .
+          - dockerfile: ./client/Dockerfile
+            image: ghcr.io/cmendesce/client-app
+            context: ./client
+          - dockerfile: ./server/Dockerfile
+            image: ghcr.io/cmendesce/server-app
+            context: ./server
 
     steps:
     - uses: actions/checkout@v4

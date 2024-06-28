@@ -17,8 +17,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform:
-          - linux/amd64
         include:
           - dockerfile: ./client/Dockerfile
             image: ghcr.io/cmendesce/client-app
@@ -46,7 +44,7 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
       with:
-        platforms: ${{ matrix.platform }}
+        platforms: linux/amd64
         context: ${{ matrix.context }}
         file: ${{ matrix.dockerfile }}
         push: ${{ github.event_name != 'pull_request' }}

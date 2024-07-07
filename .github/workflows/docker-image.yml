@@ -18,9 +18,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./client/Dockerfile
-            image: ghcr.io/cmendesce/client-app
-            context: ./client
+          - dockerfile: ./polly/Dockerfile
+            image: ghcr.io/cmendesce/polly-client
+            context: ./polly
+          - dockerfile: ./resilience4j/Dockerfile
+            image: ghcr.io/cmendesce/resilience4j-client
+            context: ./resilience4j
           - dockerfile: ./server/Dockerfile
             image: ghcr.io/cmendesce/server-app
             context: ./server

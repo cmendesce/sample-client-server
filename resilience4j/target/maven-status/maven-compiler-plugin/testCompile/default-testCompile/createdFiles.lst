@@ -1,4 +1,0 @@
-br/unifor/ppgia/resilience4j/circuitBreaker/CircuitBreakerControllerIT.class
-br/unifor/ppgia/resilience4j/circuitBreaker/CircuitBreakerRequestModelTest.class
-br/unifor/ppgia/resilience4j/ClientResilience4jApplicationTests.class
-br/unifor/ppgia/resilience4j/circuitBreaker/BackendServiceWithCircuitBreakerTest.class

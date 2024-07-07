@@ -1,0 +1,4 @@
+/Users/carlosmendes/github/cmendesce/sample-app/resilience4j/src/test/java/br/unifor/ppgia/resilience4j/circuitBreaker/CircuitBreakerControllerIT.java
+/Users/carlosmendes/github/cmendesce/sample-app/resilience4j/src/test/java/br/unifor/ppgia/resilience4j/circuitBreaker/CircuitBreakerRequestModelTest.java
+/Users/carlosmendes/github/cmendesce/sample-app/resilience4j/src/test/java/br/unifor/ppgia/resilience4j/circuitBreaker/BackendServiceWithCircuitBreakerTest.java
+/Users/carlosmendes/github/cmendesce/sample-app/resilience4j/src/test/java/br/unifor/ppgia/resilience4j/ClientResilience4jApplicationTests.java

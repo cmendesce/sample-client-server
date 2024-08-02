@@ -7,12 +7,12 @@ import org.springframework.util.StopWatch;
 import org.springframework.web.client.RestClientException;
 
 public abstract class BackendServiceTemplate {
-    private final ResilienceModuleMetrics metrics;
+    private ResilienceModuleMetrics metrics;
     private final RestClient restClient;
 
     public BackendServiceTemplate(RestClient restClient) {
         this.restClient = restClient;
-        metrics = new ResilienceModuleMetrics();
+
     }
 
     protected abstract CheckedFunction0<ResponseEntity<String>> decorate(CheckedFunction0<ResponseEntity<String>> checkedFunction);
@@ -35,6 +35,7 @@ public abstract class BackendServiceTemplate {
     }
 
     public <P> ResilienceModuleMetrics doHttpRequest(RequestModel requestModel) {
+        metrics = new ResilienceModuleMetrics();
         var successfulCalls = 0;
         var totalCalls = 0;
         var externalStopwatch = new StopWatch();

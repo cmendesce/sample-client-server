@@ -27,7 +27,7 @@ static_resources:
                         - match:
                             prefix: "/"
                           route:
-                            cluster: httpbin
+                            cluster: backendservice
                             retry_policy:
                               num_retries: 0
                 http_filters:
@@ -51,16 +51,16 @@ static_resources:
                         text_format_source:
                           inline_string: "[%START_TIME%] \"%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%\" %RESPONSE_CODE% %RESPONSE_FLAGS% %BYTES_RECEIVED% %BYTES_SENT% \"%REQ(X-FORWARDED-FOR)%\" \"%REQ(USER-AGENT)%\" \"%REQ(X-REQUEST-ID)%\" \"%REQ(:AUTHORITY)%\" \"%UPSTREAM_HOST%\"\n"
   clusters:
-    - name: httpbin
+    - name: backendservice
       connect_timeout: 1s
       type: STRICT_DNS
       lb_policy: ROUND_ROBIN
       load_assignment:
-        cluster_name: httpbin
+        cluster_name: backendservice
         endpoints:
           - lb_endpoints:
               - endpoint:
                   address:
                     socket_address:
                       address: 127.0.0.1
-                      port_value: 80
+                      port_value: PORT_PLACEHOLDER

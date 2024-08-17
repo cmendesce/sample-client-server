@@ -55,6 +55,7 @@ static_resources:
       connect_timeout: 1s
       type: STRICT_DNS
       lb_policy: ROUND_ROBIN
+      http2_protocol_options: {}
       load_assignment:
         cluster_name: backendservice
         endpoints:
